@@ -12,7 +12,7 @@ AFRAME.registerComponent("cursorevent", {
     if (placesId.includes(id)) {
       const placeContainer = document.querySelector("#places-container");
       placeContainer.setAttribute("cursorevent", {
-        selectedItemId: id,
+        ItemId: id,
       });
       this.el.setAttribute("material", {
         color: "orange",
@@ -29,11 +29,11 @@ AFRAME.registerComponent("cursorevent", {
   handleMouseLeave: function () {
 
     this.el.addEventListener("mouseleave", () => {
-      const { selectedItemId } = this.data;
-      if (selectedItemId) {
-        const el = document.querySelector(`#${selectedItemId}`);
+      const { ItemId } = this.data;
+      if (ItemId) {
+        const el = document.querySelector(`#${ItemId}`);
         const id = el.getAttribute("id");
-        if (id == selectedItemId) {
+        if (id == ItemId) {
           el.setAttribute("material", {
             color: "blue",
             opacity: 1,
